@@ -33,7 +33,7 @@ pipeline {
 		}
 // 		always {
 // 			recordIssues enabledForFailure: true, tool: sonarQube()
-// 		}
+ 		}
  	}
   }
 
