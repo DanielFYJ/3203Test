@@ -21,7 +21,7 @@ pipeline {
 	script {
 		def scannerHome = tool 'SonarQube';
 		withSonarQubeEnv('SonarQube') {
-		sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=SIMPLEPHP -Dsonar.sources=."
+		sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=3203PHP -Dsonar.sources=."
 				}
 			}
 		}
