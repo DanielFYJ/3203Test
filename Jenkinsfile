@@ -6,7 +6,7 @@ pipeline {
         sh 'php --version'
       }
     }
-    stage('hello') {
+    stage('Integration') {
       steps {
         sh 'php 3203website.php'
       }
