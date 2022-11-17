@@ -16,24 +16,24 @@ pipeline {
 	dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'Default'
       }
      }
-//     stage('SonarQube Analysis'){
-//       steps {	 
-// 	script {
-// 		def scannerHome = tool 'SonarQube';
-// 		withSonarQubeEnv('SonarQube') {
-// 		sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=3203PHP -Dsonar.sources=."
-// 				}
-// 			}
-// 		}
-// 	}
- }	
+	 stage('SonarQube Analysis'){
+		steps {	 
+			script {
+				def scannerHome = tool 'SonarQube';
+				withSonarQubeEnv('SonarQube') {
+				sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=SIMPLENODE -Dsonar.sources=."
+				}
+			}
+		}
+	}
+    }
 	post {
 		success {
 			dependencyCheckPublisher pattern: 'dependency-check-report.xml'
 		}
-// 		always {
-// 			recordIssues enabledForFailure: true, tool: sonarQube()
-//		}
- 	}
-  }
+		always {
+			recordIssues enabledForFailure: true, tool: sonarQube()
+		}
+	}
+}
 
