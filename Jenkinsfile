@@ -11,11 +11,11 @@ pipeline {
         sh 'php 3203website.php'
       }
     }
-//     stage('OWASP DependencyCheck') {
-//       steps {
-// 	dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'Default'
-//       }
-//      }
+    stage('OWASP DependencyCheck') {
+      steps {
+	dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'Default'
+      }
+     }
 //     stage('SonarQube Analysis'){
 //       steps {	 
 // 	script {
@@ -27,10 +27,10 @@ pipeline {
 // 		}
 // 	}
 // }	
-// 	post {
-// 		success {
-// 			dependencyCheckPublisher pattern: 'dependency-check-report.xml'
-// 		}
+	post {
+		success {
+			dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+		}
 // 		always {
 // 			recordIssues enabledForFailure: true, tool: sonarQube()
 // 		}
